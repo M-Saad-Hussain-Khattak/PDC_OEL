@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Merge this CORS filter into the Solr core solrconfig.xml if your UI is served separately. -->
+<config>
+  <requestDispatcher handleSelect="true">
+    <requestParsers enableRemoteStreaming="true" multipartUploadLimitInKB="2048000" />
+  </requestDispatcher>
+
+  <filter name="crossOriginFilter" class="org.eclipse.jetty.servlets.CrossOriginFilter">
+    <init-param name="allowedOrigins" value="*" />
+    <init-param name="allowedMethods" value="GET,POST,PUT,DELETE,OPTIONS,HEAD" />
+    <init-param name="allowedHeaders" value="origin, content-type, accept, authorization" />
+  </filter>
+</config>

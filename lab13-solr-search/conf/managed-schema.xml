@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Merge these custom field definitions into the Solr core managed-schema. -->
+<schema name="products_core" version="1.6">
+  <uniqueKey>id</uniqueKey>
+
+  <field name="id" type="string" stored="true" indexed="true" required="true" />
+  <field name="product_name" type="text_general" stored="true" indexed="true" termVectors="true" />
+  <field name="category" type="string" stored="true" indexed="true" docValues="true" />
+  <field name="brand" type="string" stored="true" indexed="true" docValues="true" />
+  <field name="price" type="pfloat" stored="true" indexed="true" docValues="true" />
+  <field name="rating" type="pfloat" stored="true" indexed="true" docValues="true" />
+  <field name="in_stock" type="boolean" stored="true" indexed="true" />
+  <field name="description" type="text_general" stored="true" indexed="true" />
+</schema>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SolrSearch Pro</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Apache Solr + Flask</p>
+        <h1>Product search with faceting, filtering, and highlighting.</h1>
+        <p class="subhead">
+          Search the 1,500-item e-commerce catalog indexed in Solr.
+        </p>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="search-panel">
+        <form id="searchForm" class="search-bar">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search products, brands, or descriptions"
+            autocomplete="off"
+          />
+          <select id="sortSelect">
+            <option value="score desc">Best match</option>
+            <option value="price asc">Price: low to high</option>
+            <option value="price desc">Price: high to low</option>
+            <option value="rating desc">Top rated</option>
+          </select>
+          <button type="submit">Search</button>
+        </form>
+
+        <div id="autocomplete-list" class="autocomplete-list"></div>
+      </section>
+
+      <section class="content-grid">
+        <aside class="facet-card">
+          <div class="section-title-row">
+            <h2>Filters</h2>
+            <button id="clearFilterBtn" class="ghost-btn" type="button">
+              Clear
+            </button>
+          </div>
+          <div id="facets"></div>
+        </aside>
+
+        <section class="results-card">
+          <div class="section-title-row">
+            <h2>Results</h2>
+            <p id="pageInfo" class="muted"></p>
+          </div>
+          <div id="results" class="results"></div>
+          <div class="pagination-row">
+            <button id="prevPage" class="ghost-btn" type="button">
+              Previous
+            </button>
+            <button id="nextPage" class="ghost-btn" type="button">Next</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
